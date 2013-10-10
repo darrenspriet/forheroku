@@ -3,14 +3,8 @@ rememberAll
 
 This app was built by Stefan and Darren Fall 2013
 
-
-The procfile is for heroku only
-
-
-
-
-
 Building for PhoneGap follow the following link:
+===============================================
 
 There are 2 ways to create a phoneGap Applications:
 1 - Create an adobe account and you can do it through Command Line strictly, or you can 
@@ -64,11 +58,10 @@ G -  You must go the website https://build.phonegap.com to finish the process
 
 
 
-
-
-
 Heroku
 ======
+
+The procfile is for heroku only
 
 1. Before you follow the guide below, you need to have registered an 
    account on Heroku.com and installed their software (all easy to 
@@ -92,8 +85,6 @@ If you dont get the error, just continue following the article above. You can st
    heroku ps:scale web=1
 
 
-
-
 Tips/Troubles
 =============
 
@@ -113,8 +104,8 @@ Tips/Troubles
     branch from the git link provided by heroku. This way, pushing code to heroku is SUPER easy.You just checkout to the heroku branch, pull from the master, then push (which pushes to the server).
 
 4. To use jsdoc, you need to put in the command line:
-    jsdoc %project folder% *
-    to generate a doc for your whole project
+    First remove the node modules folder then run jsdoc %project folder% * to generate a doc for your whole project
+    once generated move node modules back
 
 5. WHen using mongoose to get all the highscores of a specific user,
     it was easier for me to do just a find, then narrrow down the search, then trying to use findOne (just a username) and getting all the data that way. I suppose it makes more sense to use find when you want multi objects back (or a collection). 
@@ -122,9 +113,15 @@ Tips/Troubles
 6. DONT EVER MANUALLY CHANGE THE PATH, it will get trunked if you
     attempt this via the command line.
 
-7. Use underscores when trying to type a commit message via the
+7. I had to use underscores when trying to type a commit message via the
     command line. Git doesn't support spaces in your string for some reason. Also, git commit -am 'MSG' is really handy to add files and add a message at the same time.
 
 8. When trying to install the android apk on my phone, downloading
-    the apk then transfering it to my phone, then installing it would give me a parse error. But if I use the qrcode, the app installed just fine.
+    the apk then transfering it to my phone, then installing it would give me a parse error. But if I use the QRCode, the app installed just fine.
+
+9.  Make sure you use npm install -g supervisor, this will restart the server when changes are detected
+
+10. The public folder holds all of the code that will go onto the client device, and the rest will sit on the server
+
+
 
