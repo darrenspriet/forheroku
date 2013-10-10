@@ -62,3 +62,23 @@ G -  You can continue with Command Line or got to https://build.phonegap.com to 
 Option 2:
 G -  You must go the website https://build.phonegap.com to finish the process
 
+
+
+Heroku
+======
+
+The steps to upload your code onto heroku.com and host your node app
+
+Follow EVERY step on this site UNTIL you get to a command saying git push heroku master (you can skip the step that says "foreman start"
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#prerequisites
+
+If you try to do the next step (git push heroku master) and it gives an error saying something about "access denied (something about public key)
+do the following commands:
+heroku keys:add (enter)
+then just tab and add all your .pub files in the c:\users\%YOUR USER%\.shh folder
+
+If you are having problems finding or making your public keys go to this site.
+http://stackoverflow.com/questions/12206779/git-push-heroku-master-permission-denied-publickey-fatal-the-remote-end-hung
+
+If you dont get the error, just continue following the article above. You can stop when you do the command:
+   heroku ps:scale web=1
