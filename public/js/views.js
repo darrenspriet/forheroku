@@ -1,3 +1,7 @@
+/**
+ * this method serializes a form and returns an array with
+    the contents of that form.
+*/
 $.fn.serializeObject = function() {
   var o = {};
   var a = this.serializeArray();
@@ -14,6 +18,10 @@ $.fn.serializeObject = function() {
   return o;
 };
 
+/**
+ * Index view renders the home page into container in 
+    the index.html
+*/
 var IndexView = Backbone.View.extend({
   el:'body > .container',
   render: function() {
@@ -22,7 +30,9 @@ var IndexView = Backbone.View.extend({
     this.$el.html(template).trigger('create');
   }
 });
-
+/**
+ * 
+*/
 var HighScoreView = Backbone.View.extend({
   el:'body > .container',
   events: {
