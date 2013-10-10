@@ -18,6 +18,7 @@ var IndexView = Backbone.View.extend({
   el:'body > .container',
   render: function() {
     var source = $("#index_template").html();
+    
     var template = Mustache.to_html(source);
     this.$el.html(template).trigger('create');
   }
