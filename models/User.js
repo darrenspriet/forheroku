@@ -1,6 +1,10 @@
 var db = require('../lib/db');
 var validate = require('mongoose-validator').validate;
 
+/**
+ * makes a mongodb schema which is what each entry in the 
+    database looks like.
+*/
 var UserSchema = new db.Schema({
     username : {
         type: String, 
@@ -13,6 +17,12 @@ var MyUser = db.mongoose.model('User', UserSchema);
 
 
 // Add user to database
+/**
+ * takes in two strings (a username and a highscore) and 
+    and calls the mongoose method save to store those two
+    entries as a single object in the mongo database
+ * returns the user saved or an error
+*/
 var addUser = function(username, highscore, callback) {
     var instance = new MyUser();
     instance.username = username;
@@ -29,6 +39,11 @@ var addUser = function(username, highscore, callback) {
     });
 }
 
+/**
+ * Calls the mongoose function find
+ * returns a collection of highscores and usernames or null
+    (if there is an error)
+*/
 var getTopHighscore =  function (callback){
     
     MyUser.find(
@@ -51,6 +66,12 @@ var getTopHighscore =  function (callback){
     });
 }
 
+/**
+ * Calls the mongoose function find but this time only looks at
+    usernames which is given.
+ * returns a collection of highscores and usernames or null
+    (if there is an error)
+*/
 var findOneHighscore = function(username,callback){
      MyUser.find(
         {username: username}, 
@@ -73,6 +94,9 @@ var findOneHighscore = function(username,callback){
 }
 
 // Exports
+/**
+ * This three exports have to go after their declaration above.
+*/
 module.exports.addUser = addUser;
 module.exports.getTopHighscore = getTopHighscore;
 module.exports.findOneHighscore = findOneHighscore;

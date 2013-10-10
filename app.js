@@ -1,6 +1,8 @@
 
 /**
  * Module dependencies.
+ * This is where we "require" all the necessary libraries
+    and/or models that our node server needs.
  */
 
  var express = require('express')
@@ -16,12 +18,14 @@
 
  var app = express();
 
-//conf.ports.server;
-
-// all environments
+/**
+ * All the environments
+ * This is all auto-generated
+ * app.set('port') => this line is where you can specify the port
+    at which the app runs on.
+*/
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-//app.set('view engine', 'jade');
 app.engine('handlebars', exphbs({defaultLayout : 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
@@ -36,7 +40,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-
+/**
+ * This method reads the index.html file in the public directory.
+    if the current URL is the index page '/'.
+*/
 app.get('/', function(req, res){
     fs.readFile('./public/index.html', function(error, content){
         if(error){
@@ -50,6 +57,12 @@ app.get('/', function(req, res){
     });
 });
 
+/**
+ * Sends the frontend the result of calling User.getTopHighscore
+    which is a multi-layered JSON object 
+ * User is a User model from the models/User.js file.
+ * getTopHighscore is a mongoose method from the models folder.
+*/
 app.get('/getHighScores', function(req,res){
 
     User.getTopHighscore(function(err, collection){
@@ -64,8 +77,14 @@ app.get('/getHighScores', function(req,res){
     });
 });
 
-
-
+/**
+ * Receives a username from the frontend and calls findOneHighscore
+    to find all the highscores that specific uses has entered
+    in the database. It then sends the frontend a multi-layered JSON
+    object.
+ * User is a User model and findOneHighscore is a mongoose method,
+    both are form the models/User.js file
+*/
 app.post('/search', function(req, res){
 
     var username = req.body.username;
@@ -83,6 +102,14 @@ app.post('/search', function(req, res){
      });
 });
 
+/**
+ * Receives a username and a highscore from the frontend and calls
+    addUser which posts those two pieces of info into the mongoDB
+    database. It then sends the frontend a status of success or 
+    fail.
+ * User is a User model and findOneHighscore is a mongoose method,
+    both are form the models/User.js file
+*/
 app.post('/addHighScore', function(req, res) {
     var username = req.body.username;
     var highscore = req.body.highscore;
@@ -99,7 +126,9 @@ app.post('/addHighScore', function(req, res) {
     }); 
 });
 
-
+/**
+ * Auto generated, starts the nodejs server
+*/
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
