@@ -122,8 +122,8 @@ Troubles
 6. DONT EVER MANUALLY CHANGE THE PATH, it will get trunked if you
     attempt this via the command line.
 
-7. 
-
+7. Use underscores when trying to type a commit message via the
+    command line. Git doesn't support spaces in your string for some reason.
 
 
 
