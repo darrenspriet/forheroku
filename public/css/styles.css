@@ -53,8 +53,9 @@ a:hover {
   background-repeat: no-repeat;
   filter: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 976px) {
     body { padding-top: 0px; }
+    
 }
 
 .gbutton:hover {
