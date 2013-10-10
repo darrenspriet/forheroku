@@ -116,9 +116,13 @@ Troubles
     jsdoc %project folder% *
     to generate a doc for your whole project
 
+5. WHen using mongoose to get all the highscores of a specific user,
+    it was easier for me to do just a find, then narrrow down the search, then trying to use findOne (just a username) and getting all the data that way. I suppose it makes more sense to use find when you want multi objects back (or a collection). 
 
+6. DONT EVER MANUALLY CHANGE THE PATH, it will get trunked if you
+    attempt this via the command line.
 
-
+7. 
 
 
 
