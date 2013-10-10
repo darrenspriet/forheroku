@@ -123,7 +123,7 @@ Troubles
     attempt this via the command line.
 
 7. Use underscores when trying to type a commit message via the
-    command line. Git doesn't support spaces in your string for some reason.
+    command line. Git doesn't support spaces in your string for some reason. Also, git commit -am 'MSG' is really handy to add files and add a message at the same time.
 
 
 
