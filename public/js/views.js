@@ -32,7 +32,9 @@ var IndexView = Backbone.View.extend({
   }
 });
 /**
- * 
+ * HighScore View renders the high score page into container 
+  in index.html
+  This view Fetches the top 10 scores of the in our MongoDB
 */
 var HighScoreView = Backbone.View.extend({
   el:'body > .container',
@@ -98,13 +100,17 @@ var HighScoreView = Backbone.View.extend({
   }
 });
 
+/**
+ * GameOver View renders the Game Over page into container 
+  in index.html
+   Grabs the user information and the high score and saves it to MondoDB
+*/
 var GameoverView = Backbone.View.extend({
   el: 'body > .container',
   events: {
     'submit .addHS': 'addHS'
   },
   addHS: function(ev){
-    console.log("segdoggy");
     ev.preventDefault();
     var userDetails = $(ev.currentTarget).serializeObject();
     var username = userDetails.username;
@@ -133,6 +139,11 @@ var GameoverView = Backbone.View.extend({
   }
 });
 
+/**
+ * Bonify View renders the Game page into container 
+  in index.html
+   Shows the game page and regenerates a new letter if needed
+*/
 var BonifyView = Backbone.View.extend({
   el: 'body > .container',
   events:{
