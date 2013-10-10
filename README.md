@@ -64,8 +64,16 @@ G -  You must go the website https://build.phonegap.com to finish the process
 
 
 
+
+
+
 Heroku
 ======
+
+1. Before you follow the guide below, you need to have registered an 
+   account on Heroku.com and installed their software (all easy to 
+   find)
+
 
 The steps to upload your code onto heroku.com and host your node app
 
@@ -82,3 +90,41 @@ http://stackoverflow.com/questions/12206779/git-push-heroku-master-permission-de
 
 If you dont get the error, just continue following the article above. You can stop when you do the command:
    heroku ps:scale web=1
+
+
+
+
+Tips/Troubles
+=============
+
+1. When I was trying to to upload code to the heroku server I kept
+    getting an error that said I failed to authenticate(public key).
+    I later found out that I wasn't using the right public on my end.
+
+    I fixed this by following the guide presented here (summary, I was trying to upload code using my github public key whereas I was supopose to use my other key that I had in my ~/ssh folder).
+
+    http://stackoverflow.com/questions/12206779/git-push-heroku-master-permission-denied-publickey-fatal-the-remote-end-hung
+
+2. When we were using phonegap for the first time, we forgot to add 
+    the server URL to the backbone model URLs so backbone would look
+    to the server from the client side. Remember, backbone is now completely separate from the server when you phonegap it.
+
+3. When you are trying to push code to the heroku server, make a
+    branch from the git link provided by heroku. This way, pushing code to heroku is SUPER easy.You just checkout to the heroku branch, pull from the master, then push (which pushes to the server).
+
+4. To use jsdoc, you need to put in the command line:
+    jsdoc %project folder% *
+    to generate a doc for your whole project
+
+5. WHen using mongoose to get all the highscores of a specific user,
+    it was easier for me to do just a find, then narrrow down the search, then trying to use findOne (just a username) and getting all the data that way. I suppose it makes more sense to use find when you want multi objects back (or a collection). 
+
+6. DONT EVER MANUALLY CHANGE THE PATH, it will get trunked if you
+    attempt this via the command line.
+
+7. Use underscores when trying to type a commit message via the
+    command line. Git doesn't support spaces in your string for some reason. Also, git commit -am 'MSG' is really handy to add files and add a message at the same time.
+
+8. When trying to install the android apk on my phone, downloading
+    the apk then transfering it to my phone, then installing it would give me a parse error. But if I use the qrcode, the app installed just fine.
+
