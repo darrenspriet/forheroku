@@ -94,8 +94,8 @@ If you dont get the error, just continue following the article above. You can st
 
 
 
-Troubles
-========
+Tips/Troubles
+=============
 
 1. When I was trying to to upload code to the heroku server I kept
     getting an error that said I failed to authenticate(public key).
@@ -125,5 +125,6 @@ Troubles
 7. Use underscores when trying to type a commit message via the
     command line. Git doesn't support spaces in your string for some reason. Also, git commit -am 'MSG' is really handy to add files and add a message at the same time.
 
-
+8. When trying to install the android apk on my phone, downloading
+    the apk then transfering it to my phone, then installing it would give me a parse error. But if I use the qrcode, the app installed just fine.
 
