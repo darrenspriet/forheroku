@@ -64,8 +64,16 @@ G -  You must go the website https://build.phonegap.com to finish the process
 
 
 
+
+
+
 Heroku
 ======
+
+1. Before you follow the guide below, you need to have registered an 
+   account on Heroku.com and installed their software (all easy to 
+   find)
+
 
 The steps to upload your code onto heroku.com and host your node app
 
@@ -82,3 +90,36 @@ http://stackoverflow.com/questions/12206779/git-push-heroku-master-permission-de
 
 If you dont get the error, just continue following the article above. You can stop when you do the command:
    heroku ps:scale web=1
+
+
+
+
+Troubles
+========
+
+1. When I was trying to to upload code to the heroku server I kept
+    getting an error that said I failed to authenticate(public key).
+    I later found out that I wasn't using the right public on my end.
+
+    I fixed this by following the guide presented here (summary, I was trying to upload code using my github public key whereas I was supopose to use my other key that I had in my ~/ssh folder).
+
+    http://stackoverflow.com/questions/12206779/git-push-heroku-master-permission-denied-publickey-fatal-the-remote-end-hung
+
+2. When we were using phonegap for the first time, we forgot to add 
+    the server URL to the backbone model URLs so backbone would look
+    to the server from the client side. Remember, backbone is now completely separate from the server when you phonegap it.
+
+3. When you are trying to push code to the heroku server, make a
+    branch from the git link provided by heroku. This way, pushing code to heroku is SUPER easy.You just checkout to the heroku branch, pull from the master, then push (which pushes to the server).
+
+4. To use jsdoc, you need to put in the command line:
+    jsdoc %project folder% *
+    to generate a doc for your whole project
+
+
+
+
+
+
+
+
